@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+// global variable so that we can easily access the context for CoreData
+let ad = UIApplication.shared.delegate as! AppDelegate
+let context = ad.persistentContainer.viewContext
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
