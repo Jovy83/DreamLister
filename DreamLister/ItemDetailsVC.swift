@@ -90,13 +90,11 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         
         var item: Item!
         var picture: Image!
-        var itemType: ItemType!
         
         if itemToEdit == nil
         {
             item = Item(context: context)
             picture = Image(context: context)
-            itemType = ItemType(context: context)
         }
         else
         {
@@ -112,15 +110,6 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             {
                 picture = item.toImage
             }
-            
-            if item.toItemType == nil
-            {
-                itemType = ItemType(context: context)
-            }
-            else
-            {
-                itemType = item.toItemType
-            }
         }
         
         if let thumbPic = thumbImage.image{
@@ -128,8 +117,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
             item.toImage = picture
         }
         
-        itemType = itemTypes[pickerView.selectedRow(inComponent: 1)]
-        item.toItemType = itemType
+        item.toItemType = itemTypes[pickerView.selectedRow(inComponent: 1)]
         
         if let title = itemTitle.text{
             item.title = title
